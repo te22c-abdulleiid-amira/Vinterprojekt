@@ -28,12 +28,17 @@ character.pos = new Vector2(0,0);
 
 // väggarna
 List<Rectangle> walls = new();
-walls.Add(new Rectangle (-25, 500, 200, 25));
+walls.Add(new Rectangle (-25, 500, 200, 25)); // --
 walls.Add(new Rectangle (-25, 300, 400, 25));
-walls.Add(new Rectangle (250, 400, 25, 600));
+walls.Add(new Rectangle (250, 400, 25, 600)); // |
 walls.Add(new Rectangle (65, 400, 200, 25));
 walls.Add(new Rectangle (350, 300, 25, 200));
 walls.Add(new Rectangle (350, 400, 25, 100));
+walls.Add(new Rectangle (450, 300, 25, 600));
+walls.Add(new Rectangle (75, 200, 500, 25));
+walls.Add(new Rectangle (550, 200, 25, 300));
+walls.Add(new Rectangle (550, 500, 150, 25));
+walls.Add(new Rectangle (550, 400, 150, 25));
 
 
 
@@ -132,6 +137,17 @@ while (!Raylib.WindowShouldClose())
             // scene = "finished";
             points++;
         }
+
+        foreach (Rectangle wall in walls)
+        {
+            if (Raylib.CheckCollisionRecs(characterRect, wall))
+            {
+                scene = "game over";
+            }
+        }
+        // foreach som går igenom alla väggar
+        //   för varje vägg, kolla om den kolliderar med spelaren
+        //     Om den gör det, ändras scene till "gameover"
 
     }
     Raylib.BeginDrawing();
