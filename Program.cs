@@ -18,10 +18,13 @@ Rectangle characterRect = new Rectangle(0, 600-64, 64, 64);
 Rectangle doorRect = new Rectangle(700, 10, 60, 60);
 Texture2D characterImage = Raylib.LoadTexture("hellokitty.png"); //här valde jag bilden som man spelat som
 
-Rectangle playerRect = new Rectangle(5,5,10,10);
+characterRect.width = characterImage.width;
+characterRect.height = characterImage.height;
+
+// Rectangle playerRect = new Rectangle(5,5,10,10);
 Rectangle enemyRect = new Rectangle(10,10,10,10);
 
-bool areOverlapping = Raylib.CheckCollisionRecs(playerRect, enemyRect); // true
+// bool areOverlapping = Raylib.CheckCollisionRecs(playerRect, enemyRect); // true
 
 (Vector2 pos, Vector2 mov, Texture2D image, Rectangle rect) character;
 character.pos = new Vector2(0,0);
@@ -104,14 +107,14 @@ while (!Raylib.WindowShouldClose())
 
 
 
-        foreach (Rectangle wall in walls)
-        {
-            if (Raylib.CheckCollisionRecs(characterRect, wall))
-            {
-                undoX = true;
-                undoY = true;
-            }
-        }
+        // foreach (Rectangle wall in walls)
+        // {
+        //     if (Raylib.CheckCollisionRecs(characterRect, wall))
+        //     {
+        //         undoX = true;
+        //         undoY = true;
+        //     }
+        // }
 
         if (undoX == true)
         {
