@@ -94,12 +94,12 @@ while (!Raylib.WindowShouldClose())
         bool undoY = false;
 
         // så karaktären inte går utanför mappan
-        if (characterRect.x > 800 - 64 || characterRect.x < 0)
+        if (characterRect.x > 800 - characterRect.width || characterRect.x < 0)
         {
             // characterRect.x -= movement.X;
             undoX = true;
         }
-        if (characterRect.y > 600 - 64 || characterRect.y < 0)
+        if (characterRect.y > 600 - characterRect.height || characterRect.y < 0)
         {
             // characterRect.y -= movement.Y;
             undoY = true;
@@ -181,7 +181,7 @@ while (!Raylib.WindowShouldClose())
     else if (scene == "game over")
     {
         Raylib.ClearBackground(Color.BLACK);
-        Raylib.DrawRectangleRec(doorRect, Color.RED);
+        // Raylib.DrawRectangleRec(doorRect, Color.RED);
         Raylib.DrawText("GAME OVER", 250, 250, 30, Color.RED);
     }
 
