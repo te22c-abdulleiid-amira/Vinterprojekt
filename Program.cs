@@ -3,6 +3,7 @@ using System.CodeDom.Compiler;
 using System.Linq.Expressions;
 using System.Security.Cryptography.X509Certificates;
 using System.Numerics;
+using System.Net.WebSockets;
 
 Raylib.InitWindow(800, 600, "whaaat");
 Raylib.SetTargetFPS(60);
@@ -42,7 +43,7 @@ walls.Add(new Rectangle (75, 200, 500, 25));
 walls.Add(new Rectangle (550, 200, 25, 300));
 walls.Add(new Rectangle (550, 500, 150, 25));
 walls.Add(new Rectangle (550, 400, 150, 25));
-
+walls.Add(new Rectangle (650, 300, 150, 25));
 
 
 string scene = "start";
@@ -167,14 +168,14 @@ while (!Raylib.WindowShouldClose())
 
     if (scene == "game")
     {
-        Raylib.ClearBackground(Color.PINK);
+        Raylib.ClearBackground(Color.BLACK);
         Raylib.DrawTexture(characterImage, (int)characterRect.x, (int)characterRect.y, Color.WHITE);
 
         Raylib.DrawRectangleRec(doorRect, Color.GREEN);
         Raylib.DrawText($"points: {points}", 10, 10, 32, Color.WHITE);
         foreach (Rectangle wall in walls)
         {
-            Raylib.DrawRectangleRec(wall, Color.BLACK);
+            Raylib.DrawRectangleRec(wall, Color.DARKPURPLE);
         }
 
     }
@@ -182,7 +183,7 @@ while (!Raylib.WindowShouldClose())
     {
         Raylib.ClearBackground(Color.BLACK);
         // Raylib.DrawRectangleRec(doorRect, Color.RED);
-        Raylib.DrawText("GAME OVER", 250, 250, 30, Color.RED);
+        Raylib.DrawText("GAME OVER", 300, 275, 30, Color.RED);
     }
 
 
@@ -190,7 +191,9 @@ while (!Raylib.WindowShouldClose())
     else if (scene == "start")
     {
         Raylib.ClearBackground(Color.BLACK);
-        Raylib.DrawText("slå största knappen", 250, 250, 30, Color.LIGHTGRAY);
+        Raylib.DrawText("DON'T TOUCH THE", 200, 250, 30, Color.LIGHTGRAY);
+         Raylib.DrawText("VOID", 510, 250, 30, Color.PURPLE);
+        Raylib.DrawText("press [space]", 300, 300, 30, Color.LIGHTGRAY);
     }
     // Raylib.DrawRectangle(20, 690, 420, 50, Color.VIOLET);
     Raylib.EndDrawing();
