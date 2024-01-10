@@ -44,6 +44,7 @@ walls.Add(new Rectangle (550, 200, 25, 300));
 walls.Add(new Rectangle (550, 500, 150, 25));
 walls.Add(new Rectangle (550, 400, 150, 25));
 walls.Add(new Rectangle (650, 300, 150, 25));
+walls.Add(new Rectangle (550, 200, 150, 25));
 
 
 string scene = "start";
@@ -179,11 +180,34 @@ while (!Raylib.WindowShouldClose())
         }
 
     }
-    else if (scene == "game over")
+
+    //   if (Raylib.IsKeyPressed(KeyboardKey.KEY_R))
+    //             {
+    //                 game over = false;
+    //                 // Reset game state or initialize a new game
+    //             }
+    //         }
+    //         else
+    //         {
+    //             // Update and draw your game here
+
+    //             // For this example, simulate game over after a certain condition
+    //             if (/* Your game over condition */)
+    //             {
+    //                 gameOver = true;
+    //             }
+
+    if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
+        {
+            scene = "game";
+        }
+    else if (scene == "game over") // Draw game over screen
     {
         Raylib.ClearBackground(Color.BLACK);
         // Raylib.DrawRectangleRec(doorRect, Color.RED);
-        Raylib.DrawText("GAME OVER", 300, 275, 30, Color.RED);
+        Raylib.DrawText("GAME OVER", 258, 260, 40, Color.RED);
+        Raylib.DrawText("press [R] to replay", 240, 335, 30, Color.RED);
+        
     }
 
 
@@ -191,8 +215,8 @@ while (!Raylib.WindowShouldClose())
     else if (scene == "start")
     {
         Raylib.ClearBackground(Color.BLACK);
-        Raylib.DrawText("DON'T TOUCH THE", 200, 250, 30, Color.LIGHTGRAY);
-         Raylib.DrawText("VOID", 510, 250, 30, Color.PURPLE);
+        Raylib.DrawText("DON'T TOUCH THE", 150, 250, 40, Color.LIGHTGRAY);
+         Raylib.DrawText("VOID", 550, 250, 40, Color.DARKPURPLE);
         Raylib.DrawText("press [space]", 300, 300, 30, Color.LIGHTGRAY);
     }
     // Raylib.DrawRectangle(20, 690, 420, 50, Color.VIOLET);
