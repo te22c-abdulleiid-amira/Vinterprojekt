@@ -206,9 +206,17 @@ while (!Raylib.WindowShouldClose())
         Raylib.ClearBackground(Color.BLACK);
         // Raylib.DrawRectangleRec(doorRect, Color.RED);
         Raylib.DrawText("GAME OVER", 258, 260, 40, Color.RED);
-        Raylib.DrawText("press [R] to replay", 240, 335, 30, Color.RED);
-        
+        Raylib.DrawText("press [R] to replay", 240, 335, 30, Color.RED);   
+        if (Raylib.IsKeyPressed(KeyboardKey.KEY_R))
+                {
+                    // Reset game state or initialize a new game
+                    scene = "start";
+                    points = 0;
+                    characterRect.x = 0;
+                    characterRect.y = 600 - 64;
+                }
     }
+   
 
 
     // startmenyn
@@ -224,4 +232,3 @@ while (!Raylib.WindowShouldClose())
 
 
 }
-
