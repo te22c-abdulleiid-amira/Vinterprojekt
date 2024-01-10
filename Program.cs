@@ -15,7 +15,7 @@ Color hotPink = new Color(255, 105, 180, 255);
 Vector2 position = new Vector2(0, 0);
 Vector2 movement = new Vector2(2, 1);
 // Rectangle wall = new Rectangle(20, 300, 400, 20);
-Rectangle characterRect = new Rectangle(0, 600-64, 64, 64);
+Rectangle characterRect = new Rectangle(0, 600 - 64, 64, 64);
 Rectangle doorRect = new Rectangle(700, 10, 60, 60);
 Texture2D characterImage = Raylib.LoadTexture("hellokitty.png"); //här valde jag bilden som man spelat som
 
@@ -23,28 +23,28 @@ characterRect.width = characterImage.width;
 characterRect.height = characterImage.height;
 
 // Rectangle playerRect = new Rectangle(5,5,10,10);
-Rectangle enemyRect = new Rectangle(10,10,10,10);
+Rectangle enemyRect = new Rectangle(10, 10, 10, 10);
 
 // bool areOverlapping = Raylib.CheckCollisionRecs(playerRect, enemyRect); // true
 
 (Vector2 pos, Vector2 mov, Texture2D image, Rectangle rect) character;
-character.pos = new Vector2(0,0);
+character.pos = new Vector2(0, 0);
 
 // väggarna
 List<Rectangle> walls = new();
-walls.Add(new Rectangle (-25, 500, 200, 25)); // --
-walls.Add(new Rectangle (-25, 300, 400, 25));
-walls.Add(new Rectangle (250, 400, 25, 600)); // |
-walls.Add(new Rectangle (65, 400, 200, 25));
-walls.Add(new Rectangle (350, 300, 25, 200));
-walls.Add(new Rectangle (350, 400, 25, 100));
-walls.Add(new Rectangle (450, 300, 25, 600));
-walls.Add(new Rectangle (75, 200, 500, 25));
-walls.Add(new Rectangle (550, 200, 25, 300));
-walls.Add(new Rectangle (550, 500, 150, 25));
-walls.Add(new Rectangle (550, 400, 150, 25));
-walls.Add(new Rectangle (650, 300, 150, 25));
-walls.Add(new Rectangle (550, 200, 150, 25));
+walls.Add(new Rectangle(-25, 500, 200, 25)); // --
+walls.Add(new Rectangle(-25, 300, 400, 25));
+walls.Add(new Rectangle(250, 400, 25, 600)); // |
+walls.Add(new Rectangle(65, 400, 200, 25));
+walls.Add(new Rectangle(350, 300, 25, 200));
+walls.Add(new Rectangle(350, 400, 25, 100));
+walls.Add(new Rectangle(450, 300, 25, 600));
+walls.Add(new Rectangle(75, 200, 500, 25));
+walls.Add(new Rectangle(550, 200, 25, 300));
+walls.Add(new Rectangle(550, 500, 150, 25));
+walls.Add(new Rectangle(550, 400, 150, 25));
+walls.Add(new Rectangle(650, 300, 150, 25));
+walls.Add(new Rectangle(550, 200, 150, 25));
 
 
 string scene = "start";
@@ -53,7 +53,7 @@ float speed = 2; //karaktärens fart
 int points = 0;
 
 while (!Raylib.WindowShouldClose())
-{ 
+{
     // x++;
     // position.X++;
 
@@ -92,7 +92,7 @@ while (!Raylib.WindowShouldClose())
         }
         characterRect.x += movement.X;
         characterRect.y += movement.Y;
-        bool undoX = false; 
+        bool undoX = false;
         bool undoY = false;
 
         // så karaktären inte går utanför mappan
@@ -181,54 +181,40 @@ while (!Raylib.WindowShouldClose())
 
     }
 
-    //   if (Raylib.IsKeyPressed(KeyboardKey.KEY_R))
-    //             {
-    //                 game over = false;
-    //                 // Reset game state or initialize a new game
-    //             }
-    //         }
-    //         else
-    //         {
-    //             // Update and draw your game here
 
-    //             // For this example, simulate game over after a certain condition
-    //             if (/* Your game over condition */)
-    //             {
-    //                 gameOver = true;
-    //             }
 
     if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
-        {
-            scene = "game";
-        }
+    {
+        scene = "game";
+    }
     else if (scene == "game over") // Draw game over screen
     {
         Raylib.ClearBackground(Color.BLACK);
         // Raylib.DrawRectangleRec(doorRect, Color.RED);
         Raylib.DrawText("GAME OVER", 258, 260, 40, Color.RED);
-        Raylib.DrawText("press [R] to replay", 240, 335, 30, Color.RED);   
+        Raylib.DrawText("press [R] to replay", 240, 320, 30, Color.DARKGRAY);
+        Raylib.DrawText("press [Q] to close", 250, 370, 30, Color.DARKGRAY);
         if (Raylib.IsKeyPressed(KeyboardKey.KEY_R))
-                {
-                    // Reset game state or initialize a new game
-                    scene = "start";
-                    points = 0;
-                    characterRect.x = 0;
-                    characterRect.y = 600 - 64;
-                }
+        {
+            // starta om spelet efter man har förlorat
+            scene = "start";
+            points = 0;
+            characterRect.x = 0;
+            characterRect.y = 600 - 64;
+        }
+        if (Raylib.IsKeyPressed(KeyboardKey.KEY_Q))
+        {
+            Raylib.CloseWindow();
+        }
     }
-   
-
-
     // startmenyn
     else if (scene == "start")
     {
         Raylib.ClearBackground(Color.BLACK);
         Raylib.DrawText("DON'T TOUCH THE", 150, 250, 40, Color.LIGHTGRAY);
-         Raylib.DrawText("VOID", 550, 250, 40, Color.DARKPURPLE);
+        Raylib.DrawText("VOID", 550, 250, 40, Color.DARKPURPLE);
         Raylib.DrawText("press [space]", 300, 300, 30, Color.LIGHTGRAY);
     }
     // Raylib.DrawRectangle(20, 690, 420, 50, Color.VIOLET);
     Raylib.EndDrawing();
-
-
 }
