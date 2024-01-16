@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\amira.abdulleiid\\Documents\\Prog\\Vinterprojekt\\VinterProjekt.csproj": {}
+    "c:\\Users\\amira.abdulleiid\\Documents\\Prog\\Vinterprojekt\\VinterProjekt.csproj": {}
   },
   "projects": {
-    "C:\\Users\\amira.abdulleiid\\Documents\\Prog\\Vinterprojekt\\VinterProjekt.csproj": {
+    "c:\\Users\\amira.abdulleiid\\Documents\\Prog\\Vinterprojekt\\VinterProjekt.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\amira.abdulleiid\\Documents\\Prog\\Vinterprojekt\\VinterProjekt.csproj",
+        "projectUniqueName": "c:\\Users\\amira.abdulleiid\\Documents\\Prog\\Vinterprojekt\\VinterProjekt.csproj",
         "projectName": "VinterProjekt",
-        "projectPath": "C:\\Users\\amira.abdulleiid\\Documents\\Prog\\Vinterprojekt\\VinterProjekt.csproj",
+        "projectPath": "c:\\Users\\amira.abdulleiid\\Documents\\Prog\\Vinterprojekt\\VinterProjekt.csproj",
         "packagesPath": "C:\\Users\\amira.abdulleiid\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\amira.abdulleiid\\Documents\\Prog\\Vinterprojekt\\obj\\",
+        "outputPath": "c:\\Users\\amira.abdulleiid\\Documents\\Prog\\Vinterprojekt\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
