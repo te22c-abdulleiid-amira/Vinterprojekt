@@ -17,6 +17,7 @@ Vector2 movement = new Vector2(2, 1);
 // Rectangle wall = new Rectangle(20, 300, 400, 20);
 Rectangle characterRect = new Rectangle(0, 600 - 64, 64, 64);
 Rectangle doorRect = new Rectangle(700, 10, 60, 60);
+Rectangle box = new Rectangle(0, 600 - 64, 64, 64);
 Texture2D characterImage = Raylib.LoadTexture("hellokitty.png"); //här valde jag bilden som man spelat som
 
 characterRect.width = characterImage.width;
@@ -29,6 +30,7 @@ Rectangle enemyRect = new Rectangle(10, 10, 10, 10);
 
 (Vector2 pos, Vector2 mov, Texture2D image, Rectangle rect) character;
 character.pos = new Vector2(0, 0);
+
 
 // väggarna
 List<Rectangle> walls = new();
@@ -45,6 +47,15 @@ walls.Add(new Rectangle(550, 500, 150, 25));
 walls.Add(new Rectangle(550, 400, 150, 25));
 walls.Add(new Rectangle(650, 300, 150, 25));
 walls.Add(new Rectangle(550, 200, 150, 25));
+walls.Add(new Rectangle(75, 70, 25, 140));
+walls.Add(new Rectangle(180, 0, 25, 120));
+walls.Add(new Rectangle(180, 110, 120, 25));
+walls.Add(new Rectangle(375, 66, 25, 135));
+walls.Add(new Rectangle(330, 50, 120, 17));
+walls.Add(new Rectangle(500, 110, 120, 25));
+walls.Add(new Rectangle(550, 0, 25, 120));
+walls.Add(new Rectangle(675, 110, 25, 100));
+walls.Add(new Rectangle(690, 110, 120, 25));
 
 
 string scene = "start";
@@ -165,7 +176,7 @@ while (!Raylib.WindowShouldClose())
 
     // när karaktären rör sig ska du normalisera den och använda "speed"
 
-
+      
 
     if (scene == "game")
     {
