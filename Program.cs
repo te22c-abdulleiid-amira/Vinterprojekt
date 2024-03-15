@@ -34,7 +34,7 @@ character.pos = new Vector2(0, 0);
 
 // väggarna
 List<Rectangle> walls = new();
-walls.Add(new Rectangle(-25, 500, 200, 25)); // --
+walls.Add(new Rectangle(-25, 500, 200, 25));xdcfvg // --
 walls.Add(new Rectangle(-25, 300, 400, 25));
 walls.Add(new Rectangle(250, 400, 25, 600)); // |
 walls.Add(new Rectangle(65, 400, 200, 25));
